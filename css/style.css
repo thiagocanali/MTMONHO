@@ -1,0 +1,47 @@
+/* CSS customizado */
+
+.resumo-todos {
+    background-color: #333;
+}
+
+.resumo-forest {
+    background-color: #228B22;
+}
+
+.resumo-wine {
+    background-color: #8B0000;
+}
+
+.resumo-sweet-yellow {
+    background-color: #FFD700;
+}
+
+.light-blue {
+    background-color: #1E90FF;
+}
+
+.box-part {
+    padding: 15px;
+}
+
+.title h4 {
+    margin-bottom: 0;
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.text h1 {
+    margin-bottom: 0;
+}
+
+.loader {
+    /* Estilos para o loader */
+}
+
+.tooltip {
+    /* Estilos para tooltip */
+}
+
+/* Outros estilos personalizados */
