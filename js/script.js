@@ -8,10 +8,10 @@ $(document).ready(function () {
     const table = $('#table');
 
     function fetchData() {
-        loader.addClass('is-active');
+        loader.show();
         // Simulação de busca de dados
         setTimeout(() => {
-            loader.removeClass('is-active');
+            loader.hide();
             // Atualizar valores dos resumos com dados simulados
             resumoTodos.text('123');
             resumoNormal.text('100');
@@ -48,18 +48,45 @@ $(document).ready(function () {
 
     $('#finaliza_botao').on('click', function () {
         // Lógica para finalizar alarmes selecionados
+        Swal.fire({
+            icon: 'success',
+            title: 'Sucesso!',
+            text: 'Alarmes finalizados com sucesso!',
+        });
     });
 
     $('#blackout_botao').on('click', function () {
         // Lógica para cadastrar blackout
+        Swal.fire({
+            icon: 'info',
+            title: 'Cadastro de Blackout',
+            text: 'Blackout cadastrado com sucesso!',
+        });
     });
 
     $('#sair_botao').on('click', function () {
         // Lógica para sair da console
+        Swal.fire({
+            icon: 'warning',
+            title: 'Sair',
+            text: 'Você tem certeza que deseja sair?',
+            showCancelButton: true,
+            confirmButtonText: 'Sim, sair!',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                window.location.href = '/logout';
+            }
+        });
     });
 
     $('#filter').on('click', function () {
         // Lógica para ativar filtros
+        Swal.fire({
+            icon: 'info',
+            title: 'Filtros ativados',
+            text: 'Filtros aplicados com sucesso!',
+        });
     });
 
     $('#select-clientes').select2({

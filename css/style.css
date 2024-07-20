@@ -1,47 +1,162 @@
 /* CSS customizado */
 
+/* Variáveis de cores */
+:root {
+    --primary-color: #3498db;
+    --success-color: #28a745;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+    --dark-color: #343a40;
+    --light-color: #f8f9fa;
+}
+
+/* Layout principal */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+.container-fluid {
+    padding: 20px;
+}
+
+h2#title {
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Resumo cards */
+.box-part {
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.box-part:hover {
+    transform: translateY(-5px);
+}
+
 .resumo-todos {
-    background-color: #333;
+    background-color: var(--dark-color);
 }
 
 .resumo-forest {
-    background-color: #228B22;
+    background-color: var(--success-color);
 }
 
 .resumo-wine {
-    background-color: #8B0000;
+    background-color: var(--danger-color);
 }
 
 .resumo-sweet-yellow {
-    background-color: #FFD700;
+    background-color: var(--warning-color);
 }
 
 .light-blue {
-    background-color: #1E90FF;
-}
-
-.box-part {
-    padding: 15px;
+    background-color: var(--primary-color);
 }
 
 .title h4 {
     margin-bottom: 0;
-}
-
-.title {
-    margin-bottom: 10px;
+    color: var(--light-color);
 }
 
 .text h1 {
     margin-bottom: 0;
+    color: var(--light-color);
+}
+
+/* Botões */
+.btn {
+    margin-right: 5px;
+}
+
+.btn-multitask {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+.btn-multitask:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+/* Tooltip */
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after {
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.15s ease;
+}
+
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    padding: 8px;
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    white-space: nowrap;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+[data-tooltip]:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 6px 6px 0 6px;
+    border-color: rgba(0, 0, 0, 0.8) transparent transparent transparent;
+    bottom: 150%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+[data-tooltip]:hover:before,
+[data-tooltip]:hover:after {
+    visibility: visible;
+    opacity: 1;
+    bottom: 125%;
 }
 
 .loader {
-    /* Estilos para o loader */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-.tooltip {
-    /* Estilos para tooltip */
+.loader-default {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid var(--primary-color);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    animation: spin 1s linear infinite;
 }
 
-/* Outros estilos personalizados */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .box-part {
+        margin-bottom: 15px;
+    }
+}
